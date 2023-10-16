@@ -1,0 +1,12 @@
+---
+
+- name: Remove white dots from lock screen
+  command: gsettings set com.canonical.unity-greeter draw-grid false
+
+- name: Change acl of lightdm
+  command: xhost +SI:localuser:lightdm
+
+- name: Disable White dot's on login screen
+  command: gsettings set com.canonical.unity-greeter draw-grid false
+  become: true
+  become_user: lightdm

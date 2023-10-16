@@ -1,0 +1,4 @@
+---
+
+- name: smbnotify
+  service: name=smbd state=restarted

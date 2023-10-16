@@ -1,0 +1,29 @@
+---
+
+# http://docs.ansible.com/ansible/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable
+aptcachetime: 3600
+# ssh:
+#   start: true
+#   service_enabled: true
+#   password_auth: false
+#   root_login: false
+
+#Updated the download URL's
+
+bleachbit_dwn_url: https://www.bleachbit.org/download/file/t?file=bleachbit_1.12_all_ubuntu1604.deb
+
+eclipse_dwn: http://ftp.yz.yamagata-u.ac.jp/pub/eclipse/oomph/epp/oxygen/R2/eclipse-inst-linux64.tar.gz
+
+plex_deb64_url: https://downloads.plex.tv/plex-media-server/1.12.1.4885-1046ba85f/plexmediaserver_1.12.1.4885-1046ba85f_amd64.deb
+
+plex_deb32_url: https://downloads.plex.tv/plex-media-server/1.12.1.4885-1046ba85f/plexmediaserver_1.12.1.4885-1046ba85f_i386.deb
+
+stacer_deb64_url: https://netix.dl.sourceforge.net/project/stacer/v1.0.9/stacer_1.0.9_amd64.deb
+
+vscode_deb32_url: https://az764295.vo.msecnd.net/stable/79b44aa704ce542d8ca4a3cc44cfca566e7720f1/code_1.21.1-1521038898_i386.deb
+
+
+#Application installation state.
+albert:
+    repo: present
+    install: present

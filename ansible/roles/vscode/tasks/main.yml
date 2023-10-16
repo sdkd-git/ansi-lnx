@@ -1,0 +1,22 @@
+---
+
+- name: Visual Studio Code for 32 BIT
+  apt: deb="{{ vscode_ddeb32_url }}" state=present
+  when: ansible_distribution == 'Ubuntu' and ansible_architecture == 'i386' or ansible_architecture == 'i686'
+
+- name: signing VS CODE
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    keyring: /etc/apt/trusted.gpg.d/microsoft.gpg
+    state: present
+  when: ansible_distribution == 'Ubuntu' and ansible_architecture == 'x86_64'
+  register: vscodekey
+
+- name: add Visual Studio Code repo
+  apt_repository: repo='deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main' state=present
+  when: vscodekey.changed
+  register: vscoderepo
+
+- name: Install Visual Studio Code
+  apt: name=code state=present update_cache=yes
+  when: vscoderepo.changed

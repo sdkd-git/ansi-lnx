@@ -1,0 +1,5 @@
+---
+
+plex:
+  start: true
+  service_enabled: no

@@ -1,0 +1,24 @@
+---
+
+- name: Add Oracle JDK 8
+  apt_repository: repo='ppa:webupd8team/java' state=present
+
+- name: Accept Java 8 License
+  become: yes
+  debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
+
+- name: Install Oracle Java 8
+  become: yes
+  apt: name={{item}} state=present update_cache=yes
+  with_items:
+    - oracle-java8-installer
+    - ca-certificates
+    - oracle-java8-set-default
+  register: oraclejdk
+
+- name: Setting JAVA_HOME environment
+  lineinfile:
+    path: /etc/environment
+    line: JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+    state: present
+  when: oraclejdk|success

@@ -1,0 +1,53 @@
+---
+
+  - name: Post-Installation Packages and customization of Ubuntu 16.04 64Bit
+    user: root
+    become: true
+    hosts: localhost
+    any_errors_fatal: false
+    ignore_errors: yes 
+    roles:
+      # - { role: basic-apps }
+# Server Tools
+      # - { role: ssh }
+      # - { role: samba }
+# Containerization / Virtualization
+      # - { role: docker-io }
+      # - { role: virtualbox }
+# Customizing Ubuntu
+      # - { role: cursors }
+      # - { role: wdot, ansible_distribution_release == 'Xenial' }
+      # - { role: launchermin }
+# Text editors
+      # - { role: atom }
+      # - { role: sublimetext3 }
+# IDE
+      # - { role: vscode }
+# Programming/SDK/Version Control
+      # - { role: oraclejdk8 }
+      # - { role: androidsdk }
+      # - { role: gitkarken, when: ansible_architecture == 'x86_64'  }
+      # - { role: mssql, when: ansible_architecture == 'x86_64'  }
+# Media Server
+      # - { role: plexms }
+# Project Management
+      # - { role: oprjman, when: ansible_architecture == 'x86_64' }
+# Desktop/Laptop Utilities
+      # - { role: albert }
+      # - { role: audioplayer }
+      # - { role: bleachbit, ansible_distribution_release == 'Xenial' }
+      # - { role: conkymanager}
+      # - { role: etcher }
+      # - { role: greenrecorder }
+      # - { role: grub-customizer }
+      # - { role: numix }
+      # - { role: stacer}
+      # - { role: teamviewer }
+      # - { role: vlc }
+# Internet Utilities
+      # - { role: google-chrome, ansible_architecture == 'x86_64' }
+# Power Management
+      # - { role: tlp }
+# Productivity Tools
+      # - { role: gimp-inkscape }
+      # - { role: libreoffice }
